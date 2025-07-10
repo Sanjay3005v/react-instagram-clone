@@ -16,12 +16,10 @@ import {
 const VideoContainer = ({
   items,
   index,
-  pause,
   visibleVideoIndex,
 }: {
   items: PostType;
   index: number;
-  pause: boolean;
   visibleVideoIndex: number | null;
 }) => {
   const [status, setStatus] = useState<AVPlaybackStatus>();
@@ -51,8 +49,6 @@ const VideoContainer = ({
       video.current.playAsync();
     }
   };
-
-  console.log(index + " " + visibleVideoIndex + "hi");
 
   return (
     <View>
@@ -102,7 +98,7 @@ const VideoContainer = ({
           }}
           volume={1.0}
           isMuted={mute}
-          shouldPlay={pause}
+          shouldPlay={false} // Let useEffect handle playback
           resizeMode={ResizeMode.COVER}
           onPlaybackStatusUpdate={setStatus}
           isLooping
