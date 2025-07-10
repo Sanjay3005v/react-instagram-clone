@@ -2,19 +2,30 @@ import { useTheme } from "@/utils/ThemeContext";
 import { router } from "expo-router";
 import { TouchableOpacity, View, Image, Text, StyleSheet } from "react-native";
 
+import { PostType } from "@/constants/posts"; // Assuming PostType includes user details
+
 interface StoryType {
   active?: boolean;
   imageUrl: string;
   size: number;
   text?: string;
+  user: PostType["user"]; // Add user prop
 }
-const SingleStory = ({ active = true, imageUrl, size, text }: StoryType) => {
+const SingleStory = ({
+  active = true,
+  imageUrl,
+  size,
+  text,
+  user,
+}: StoryType) => {
   const { theme } = useTheme();
   const { background, accent } = theme.colors;
   const storyColor = active ? "#E3256B" : accent;
 
   return (
-    <TouchableOpacity onPress={() => router.push("/StoryDetail")}>
+    <TouchableOpacity
+      onPress={() => router.push({ pathname: "/StoryDetail", params: { userId: user.id } })}
+    >
       <View
         style={[
           styles.container,

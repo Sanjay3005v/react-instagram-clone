@@ -35,7 +35,6 @@ export const PostCard = ({
   const viewabilityConfig = useRef({
     itemVisiblePercentThreshold: 50,
   });
-  const pause = index == visibleVideoIndex;
 
   return (
     <View>
@@ -77,7 +76,6 @@ export const PostCard = ({
             <VideoContainer
               items={item}
               index={index}
-              pause={pause}
               visibleVideoIndex={visibleVideoIndex}
             />
           )}
@@ -137,7 +135,9 @@ export const PostCard = ({
               <FontAwesome name="heart-o" size={24} color={text} />
             )}
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => router.push("/Comments")}>
+          <TouchableOpacity
+            onPress={() => router.push({ pathname: "/Comments", params: { postId: item.id } })}
+          >
             <FontAwesome6 name="comment" size={24} color={text} />
           </TouchableOpacity>
           <TouchableOpacity>
@@ -160,7 +160,7 @@ export const PostCard = ({
         </Text>
         <TouchableOpacity
           style={{ marginTop: 6 }}
-          onPress={() => router.push("/Comments")}
+          onPress={() => router.push({ pathname: "/Comments", params: { postId: item.id } })}
         >
           <Text style={{ color: "gray" }}>View all comments</Text>
         </TouchableOpacity>

@@ -227,7 +227,15 @@ const ProfilePage = () => {
 
 const UserPosts = ({ item }: { item: string }) => {
   return (
-    <TouchableOpacity style={{ flex: 1, aspectRatio: 1 }}>
+    <TouchableOpacity
+      style={{ flex: 1, aspectRatio: 1 }}
+      onPress={() =>
+        router.push({
+          pathname: "/StoryDetail",
+          params: { postImageUrl: item, username: User.username, userAvatar: User.avatar_url }, // Pass image URL and basic user info
+        })
+      }
+    >
       <Image
         source={{ uri: item }}
         style={{ width: "100%", height: "100%", objectFit: "cover" }}

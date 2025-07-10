@@ -24,7 +24,7 @@ const BottomModal = () => {
           margin: 16,
         }}
       >
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => console.log("Save pressed")}>
           <Feather
             name="bookmark"
             size={24}
@@ -40,7 +40,7 @@ const BottomModal = () => {
             Save
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => console.log("Remix pressed")}>
           <FontAwesome6
             name="retweet"
             size={24}
@@ -56,7 +56,7 @@ const BottomModal = () => {
             Remix
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => console.log("QR Code pressed")}>
           <MaterialCommunityIcons
             name="qrcode-scan"
             size={24}
@@ -74,18 +74,27 @@ const BottomModal = () => {
         </TouchableOpacity>
       </View>
       <View style={{ gap: 24, marginTop: 24, marginHorizontal: 16 }}>
-        <Pressable style={styles.pressable}>
+        <Pressable
+          style={styles.pressable}
+          onPress={() => console.log("Why you're seeing this post pressed")}
+        >
           <AntDesign name="infocirlceo" size={28} color={text} />
           <Text style={[styles.mainText, { color: text }]}>
             Why you're seeing this post
           </Text>
         </Pressable>
 
-        <Pressable style={styles.pressable}>
+        <Pressable
+          style={styles.pressable}
+          onPress={() => console.log("Not interested pressed")}
+        >
           <MaterialIcons name="visibility-off" size={28} color={text} />
           <Text style={[styles.mainText, { color: text }]}>Not interested</Text>
         </Pressable>
-        <Pressable style={styles.pressable}>
+        <Pressable
+          style={styles.pressable}
+          onPress={() => console.log("About this account pressed")}
+        >
           <MaterialCommunityIcons
             name="account-circle-outline"
             size={28}
@@ -95,11 +104,17 @@ const BottomModal = () => {
             About this account
           </Text>
         </Pressable>
-        <Pressable style={styles.pressable}>
+        <Pressable
+          style={styles.pressable}
+          onPress={() => console.log("Report pressed")}
+        >
           <Octicons name="report" size={28} color="red" />
           <Text style={[styles.mainText, { color: "red" }]}>Report</Text>
         </Pressable>
-        <Pressable style={styles.pressable}>
+        <Pressable
+          style={styles.pressable}
+          onPress={() => console.log("Manage content preferences pressed")}
+        >
           <Ionicons name="git-network-outline" size={28} color={text} />
           <Text style={[styles.mainText, { color: text }]}>
             Manage content preferences
